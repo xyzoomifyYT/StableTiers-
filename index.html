@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StableTier</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <a class="logo" href="#/">STABLE<span>TIER</span></a>
+  <div class="search"><span>⌕</span><input id="search" placeholder="Spieler suchen..." oninput="filterPlayers()"></div>
+  <button class="menu" onclick="document.body.classList.toggle('showMenu')">☰</button>
+</header>
+
+<main>
+  <div class="tabs">
+    <button class="tab active">🏆<b>Overall</b></button>
+    <button class="tab" onclick="setCategory('PvP')">⚔️<b>PvP</b></button>
+    <button class="tab" onclick="setCategory('Minigame')">🎮<b>Minigames</b></button>
+    <button class="tab" onclick="setCategory('Survival')">🌎<b>Survival</b></button>
+  </div>
+
+  <section class="info">
+    <button class="infoBtn" onclick="alert('StableTier ist eine unabhängige Minecraft-Tierlisten- und Testplattform.')">● Information</button>
+    <div class="server"><strong>STABLETIER</strong><small>SERVER</small><div>play.stabletier.net</div></div>
+    <button class="discord">Discord</button>
+  </section>
+
+  <div class="columns">
+    <span>#</span><span>PLAYER</span><span>REGION</span>
+  </div>
+
+  <section id="players"></section>
+</main>
+
+<nav class="mobileNav">
+  <a href="#/">⌂</a><a href="#modes">⚔</a><a href="#rankings">🏆</a><a href="#tests">✓</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
