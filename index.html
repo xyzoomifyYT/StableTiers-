@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StableTier</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <a class="logo" href="#/">STABLE<span>TIER</span></a>
+  <div class="search"><span>⌕</span><input id="search" placeholder="Spieler suchen..." oninput="filterPlayers()"></div>
+  <button class="menu" onclick="document.body.classList.toggle('showMenu')">☰</button>
+</header>
+
+<main>
+  <div class="tabs modeBar" id="modeBar">
+    <button class="tab active" onclick="setCategory('C')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/end_crystal.png"><b>C</b></button>
+    <button class="tab" onclick="setCategory('Pot')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/potion.png"><b>Pot</b></button>
+    <button class="tab" onclick="setCategory('NethOP')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/netherite_helmet.png"><b>NethOP</b></button>
+    <button class="tab" onclick="setCategory('SMP')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/ender_pearl.png"><b>SMP</b></button>
+    <button class="tab" onclick="setCategory('Sword')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/diamond_sword.png"><b>Sword</b></button>
+    <button class="tab" onclick="setCategory('Axe')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/diamond_axe.png"><b>Axe</b></button>
+    <button class="tab" onclick="setCategory('Mace')"><img src="https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/mace.png"><b>Mace</b></button>
+  </div>
+
+  <section class="info">
+    <button class="infoBtn" onclick="alert('StableTier ist eine unabhängige Minecraft-Tierlisten- und Testplattform.')">● Information</button>
+    <div class="server"><strong>STABLETIER</strong><small>SERVER</small><div>play.stabletier.net</div></div>
+    <button class="discord">Discord</button>
+  </section>
+
+  <div class="columns">
+    <span>#</span><span>PLAYER</span><span>REGION</span>
+  </div>
+
+  <section id="players"></section>
+</main>
+
+<nav class="mobileNav">
+  <a href="#/">⌂</a><a href="#modes">⚔</a><a href="#rankings">🏆</a><a href="#tests">✓</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
