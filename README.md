@@ -1,4 +1,4 @@
-# MineRanks
+# Stabletiers
 
 Eine eigenständige, MCTiers-ähnliche Minecraft-PvP-Tierlisten-Webseite.
 
