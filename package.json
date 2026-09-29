@@ -1,8 +1,0 @@
-{
-  "name": "stabletiers",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Stabletiers Minecraft PvP tierlist with admin panel and API",
-  "scripts": {"start": "node server.js"},
-  "engines": {"node": ">=18"}
-}
