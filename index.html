@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCTIERS — Premium PvP Tierlist</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+:root{--bg:#04040b;--p:#090918eF;--p2:#0d0b20;--line:#6330ff;--purple:#a64cff;--cyan:#32c7ff;--text:#faf8ff;--muted:#aaa4c5;--danger:#ff416d;--ok:#35e77b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);font-family:Inter,Arial;background:#03030a}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(rgba(2,2,8,.48),rgba(2,2,8,.84)),url("background.png") center/cover fixed}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 12%,rgba(135,44,255,.28),transparent 36%)}
+button,input,select{font:inherit}.wrap{width:min(1550px,94%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(3,3,12,.88);backdrop-filter:blur(15px);border-bottom:1px solid #5527bc}
+.head{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font:900 27px Rajdhani;letter-spacing:4px;text-shadow:0 0 20px var(--purple)}.logo small{display:block;font:700 9px Inter;letter-spacing:2px;color:#bdb7da}
+nav{display:flex;gap:5px;flex-wrap:wrap}nav button{cursor:pointer;border:0;background:transparent;color:#b8b2d0;padding:11px 13px;border-radius:8px;font-weight:800}nav button:hover,nav button.active{background:linear-gradient(90deg,#4b13bc,#9a25ff);color:#fff;box-shadow:0 0 22px #7426ff66}
+.hero{text-align:center;padding:38px 0 22px}.hero h1{margin:0;font:900 clamp(52px,8vw,104px)/.85 Rajdhani;letter-spacing:5px;background:linear-gradient(#fff,#b16bff 55%,#6026ff);-webkit-background-clip:text;color:transparent}.hero p{letter-spacing:3px;font-weight:800;color:#d6d1ed}
+.page{display:none}.page.active{display:block}.grid3{display:grid;grid-template-columns:285px minmax(0,1fr) 295px;gap:15px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}.panel{background:linear-gradient(145deg,rgba(11,9,28,.97),rgba(4,5,15,.96));border:1px solid #6534dc;border-radius:13px;box-shadow:0 0 28px #6b27ff1c,inset 0 0 30px #6b27ff09;overflow:hidden}.panel>h2{font:700 20px Rajdhani;margin:0;padding:14px 17px;border-bottom:1px solid #33215c}.pad{padding:16px}.profile{display:flex;gap:13px;align-items:center}.avatar{width:78px;height:78px;border:2px solid #934bff;border-radius:12px;box-shadow:0 0 20px #7b2eff;object-fit:cover}.name{font-size:21px;font-weight:900}.muted{color:var(--muted);font-size:12px}.notice{margin-top:14px;padding:13px;border-radius:9px;background:#35117a40;border:1px solid #783cff}.notice b{display:block;color:#d29cff;margin-bottom:5px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.stat{text-align:center;padding:9px;background:#070711;border:1px solid #272044;border-radius:8px}.stat b{display:block;font-size:17px}.stat span{font-size:9px;color:#938da9}
+.badge{display:inline-flex;justify-content:center;align-items:center;min-width:58px;padding:6px 9px;border-radius:7px;font-weight:900;box-shadow:0 0 13px currentColor}.ht1{background:#722aff}.lt1{background:#923cff}.ht2{background:#ef164d}.lt2{background:#ff426c}.ht3{background:#ff8119}.lt3{background:#ffa21c}.ht4{background:#f1d51f;color:#111}.lt4{background:#d8ee31;color:#111}.ht5{background:#1ed45b;color:#06140a}.lt5{background:#4bef82;color:#06140a}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.step{padding:13px;border:1px solid #362260;background:#070714;border-radius:9px;font-size:12px}.step b{display:block;color:#ce96ff;margin-bottom:6px}.table-wrap{overflow:auto}.tier-table{width:100%;min-width:920px;border-collapse:collapse}.tier-table th{padding:10px 5px;background:#070711;color:#bcb6d2;font-size:10px}.tier-table td{padding:7px 4px;text-align:center;border-top:1px solid #211b39}.tier-table td:first-child,.tier-table th:first-child{text-align:left;position:sticky;left:0;background:#080813;z-index:2}.empty{display:block;font-size:8px;color:#8d88a2;margin-top:3px}.modes{display:grid;grid-template-columns:1fr 1fr;gap:7px}.mode{padding:9px;background:#070711;border:1px solid #292044;border-radius:8px;font-size:12px;font-weight:700}.legend{display:grid;gap:7px}.legendrow{display:flex;gap:9px;align-items:center;font-size:11px}.bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin:15px 0 40px}.cta{display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#4d14bd,#a522ff);border-radius:12px;font:900 27px Rajdhani;letter-spacing:2px;min-height:120px}
+.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px}.input,.select{background:#070711;color:#fff;border:1px solid #382460;border-radius:8px;padding:11px 12px;outline:none}.input:focus,.select:focus{border-color:#a14dff;box-shadow:0 0 12px #8e32ff44}.btn{border:0;border-radius:8px;padding:11px 14px;font-weight:900;cursor:pointer;color:#fff;background:linear-gradient(90deg,#5c20ff,#a529ff);box-shadow:0 0 15px #7929ff35}.btn.secondary{background:#171329;border:1px solid #493277}.btn.danger{background:#8e153d}.btn.ok{background:#147c45}.btn:disabled{opacity:.45;cursor:not-allowed}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.card{padding:14px;background:#080813;border:1px solid #2a2045;border-radius:10px}.card h3{margin:0 0 7px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.list{display:grid;gap:8px}.rank{display:grid;grid-template-columns:38px 1fr auto auto;gap:10px;align-items:center;padding:12px;background:#080813;border:1px solid #2a2045;border-radius:9px}.rankno{font-weight:900;color:#cba1ff}.playerlink{font-weight:900;cursor:pointer}.playerlink:hover{color:#ca90ff}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.notice.ok{border-color:#1ca45b;background:#0b522e33}.notice.err{border-color:#ff315e;background:#6e153333}
+table.data{width:100%;border-collapse:collapse;font-size:12px}table.data th,table.data td{text-align:left;padding:10px;border-bottom:1px solid #241d3b}table.data th{color:#aaa3c2}
+footer{text-align:center;padding:28px;color:#746e89;font-size:11px}
+.modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:100;padding:15px}.modal.show{display:flex}.modalbox{width:min(700px,100%);max-height:90vh;overflow:auto;background:#080813;border:1px solid #753cff;border-radius:13px;box-shadow:0 0 50px #742cff55}.close{float:right;border:0;background:transparent;color:#aaa;font-size:25px;cursor:pointer}
+@media(max-width:1150px){.grid3{grid-template-columns:1fr}.bottom,.grid2{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.hero{padding-top:28px}}@media(max-width:650px){nav button{font-size:10px;padding:8px 6px}.head{height:auto;min-height:72px}.logo{font-size:20px}.form{grid-template-columns:1fr}.hero h1{font-size:60px}}
+</style>
+</head>
+<body>
+<header><div class="wrap head"><div class="logo">MCTIERS<small>PREMIUM PVP TIERLIST</small></div><nav id="nav">
+<button class="active" data-page="home">TIERLIST</button><button data-page="rankings">RANKS</button><button data-page="tests">TESTS</button><button data-page="rules">REGELN</button><button data-page="admin">ADMIN / TESTER</button>
+</nav></div></header>
+<main class="wrap">
+<section class="hero"><h1>MCTIERS</h1><p>SKILLS • TIERS • RANKS</p></section>
+
+<section id="home" class="page active">
+<div class="grid3">
+<aside class="panel"><h2>👑 DEIN PROFIL</h2><div class="pad" id="profile"></div></aside>
+<div>
+<div class="panel" style="margin-bottom:15px"><h2>🏆 SO FUNKTIONIERT'S</h2><div class="pad"><div class="steps"><div class="step"><b>01 • BEWERBEN</b>Wähle einen Modus und sende eine Test-Anfrage.</div><div class="step"><b>02 • TESTEN</b>Ein Tester prüft deine Leistung im gewählten Modus.</div><div class="step"><b>03 • AUSWERTEN</b>Das Ergebnis wird anhand des Tests bewertet.</div></div></div></div>
+<div class="panel"><h2>👑 TIERLISTE</h2><div class="table-wrap"><table class="tier-table"><thead><tr id="headRow"></tr></thead><tbody id="tierBody"></tbody></table></div></div>
+</div>
+<aside>
+<div class="panel"><h2>⚔️ ALLE MODI</h2><div class="pad modes" id="modes"></div></div>
+<div class="panel" style="margin-top:15px"><h2>🎨 TIER-ERKLÄRUNG</h2><div class="pad legend" id="legend"></div></div>
+<div class="panel" style="margin-top:15px"><h2>ℹ️ WICHTIG</h2><div class="pad muted">Du kannst dein Tier nicht selbst auswählen. Jeder Spieler muss sich testen lassen.<br><br><b style="color:#d49cff">KEIN TEST = KEIN TIER</b></div></div>
+</aside>
+</div>
+<div class="bottom">
+<div class="panel"><h2>📊 STATISTIKEN</h2><div class="pad stats" id="overallStats"></div></div>
+<div class="panel"><h2>🧪 LETZTE TESTS</h2><div class="pad" id="recentTests"></div></div>
+<div class="cta">PROVE YOUR SKILL<br><small>PLAY • TEST • RANK UP</small></div>
+</div>
+</section>
+
+<section id="rankings" class="page"><div class="panel"><h2>🏆 RANGLISTE</h2><div class="pad"><div class="toolbar"><input class="input" id="search" placeholder="Spieler suchen…"><select class="select" id="rankMode"></select><select class="select" id="rankRegion"><option value="">Alle Regionen</option><option>EU</option><option>NA</option><option>AS</option></select></div><div class="list" id="rankingList"></div></div></div></section>
+
+<section id="tests" class="page">
+<div class="grid2">
+<div class="panel"><h2>🧪 TEST ANFRAGEN</h2><div class="pad">
+<div class="form"><input class="input" id="applyPlayer" placeholder="Minecraft-Name"><select class="select" id="applyMode"></select><input class="input" id="applyDiscord" placeholder="Discord-Name"><select class="select" id="applyRegion"><option>EU</option><option>NA</option><option>AS</option></select><textarea class="input full" id="applyNote" placeholder="Optional: weitere Infos"></textarea><button class="btn full" onclick="applyTest()">TEST ANFRAGEN</button></div><div id="applyMsg"></div>
+</div></div>
+<div class="panel"><h2>📅 DEINE ANFRAGEN</h2><div class="pad" id="myApplications"></div></div>
+</div>
+</section>
+
+<section id="rules" class="page"><div class="grid2"><div class="panel"><h2>📜 REGELN</h2><div class="pad"><p><b>1.</b> Jeder Spieler muss sich testen lassen.</p><p><b>2.</b> Das Tier darf nicht selbst gewählt werden.</p><p><b>3.</b> Tests werden nur von Testern durchgeführt.</p><p><b>4.</b> Tester müssen Ergebnisse nachvollziehbar eintragen.</p><p><b>5.</b> Ein Re-Test kann nach Ablauf der Serverfrist beantragt werden.</p><p><b>6.</b> Manipulation, Betrug oder falsche Identitäten können zur Sperre führen.</p></div></div><div class="panel"><h2>🎯 TIERS & PUNKTE</h2><div class="pad" id="tierRules"></div></div></div></section>
+
+<section id="admin" class="page"><div class="panel"><h2>🛡️ ADMIN / TESTER DASHBOARD</h2><div class="pad">
+<div class="notice">Demo-Modus: Diese Version speichert Daten lokal im Browser. Für eine öffentliche Website werden später Backend + Datenbank benötigt.</div>
+<div class="toolbar"><button class="btn" onclick="seedDemo()">Demo-Spieler laden</button><button class="btn secondary" onclick="exportData()">Daten exportieren</button><button class="btn secondary" onclick="resetData()">Lokale Daten zurücksetzen</button></div>
+<h3>Offene Test-Anfragen</h3><div id="adminApps"></div><h3>Spieler verwalten</h3><div id="adminPlayers"></div>
+</div></div></section>
+</main>
+<footer>MCTIERS.DE • DEIN SERVER. DEINE SKILLS. • PLAY • TEST • RANK UP</footer>
+
+<div class="modal" id="modal"><div class="modalbox"><div class="pad"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div></div>
+
+<script>
+const modes=["Vanilla","Crystal","Axe","Sword","UHC","Mace","Bow","Spear","Elytra","Bed","Pot"];
+const tiers=[["HT1","High Tier 1","ht1"],["LT1","Low Tier 1","lt1"],["HT2","High Tier 2","ht2"],["LT2","Low Tier 2","lt2"],["HT3","High Tier 3","ht3"],["LT3","Low Tier 3","lt3"],["HT4","High Tier 4","ht4"],["LT4","Low Tier 4","lt4"],["HT5","High Tier 5","ht5"],["LT5","Low Tier 5","lt5"]];
+const modeEmoji={Vanilla:"🟩",Crystal:"💠",Axe:"🪓",Sword:"⚔️",UHC:"🍎",Mace:"🔨",Bow:"🏹",Spear:"🗡️",Elytra:"🪽",Bed:"🛏️",Pot:"🧪"};
+const tierClass=t=>t?t.toLowerCase():"";
+let db=JSON.parse(localStorage.getItem("mctiers_db")||"null")||{
+ players:[
+  {name:"Ferfeken",region:"EU",elo:0,tiers:{},wins:0,losses:0,kills:0,deaths:0},
+  {name:"zNXco",region:"EU",elo:2584,tiers:{Crystal:"HT1",Sword:"HT1",Axe:"HT1"},wins:186,losses:42,kills:421,deaths:213},
+  {name:"iCraze",region:"EU",elo:2431,tiers:{Crystal:"HT2",Sword:"HT2",Vanilla:"HT2"},wins:160,losses:59,kills:350,deaths:190},
+  {name:"xLunaa",region:"NA",elo:2297,tiers:{Crystal:"HT2",Sword:"LT2"},wins:142,losses:64,kills:315,deaths:181},
+  {name:"Rexxy",region:"EU",elo:2210,tiers:{Crystal:"HT3",Sword:"HT2"},wins:121,losses:71,kills:280,deaths:190},
+  {name:"PandaFlex",region:"AS",elo:2097,tiers:{Crystal:"HT4"},wins:98,losses:83,kills:230,deaths:200}
+ ],
+ applications:[],
+ tests:[]
+};
+function save(){localStorage.setItem("mctiers_db",JSON.stringify(db))}
+function player(name){return db.players.find(p=>p.name.toLowerCase()===name.toLowerCase())}
+function badge(t){return t?`<span class="badge ${tierClass(t)}">${t}</span>`:`<span class="muted">—</span>`}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+
+function renderHome(){
+ const p=player("Ferfeken")||db.players[0];
+ document.getElementById("profile").innerHTML=`<div class="profile"><img class="avatar" src="https://minotar.net/helm/${encodeURIComponent(p.name)}/100.png"><div><div class="name">${esc(p.name)}</div><div class="muted">🇩🇪 Deutschland • ${p.region}</div></div></div>
+ <div class="notice"><b>${Object.keys(p.tiers).length?"AKTIVER SPIELER":"NOCH KEIN TIER"}</b>${Object.keys(p.tiers).length?"Deine aktuellen Modus-Tiers stehen in der Tierliste.":"Du musst dich zuerst testen lassen, um ein Tier zu bekommen."}</div>
+ <div class="stats"><div class="stat"><b>${p.elo||0}</b><span>ELO</span></div><div class="stat"><b>${p.wins||0}</b><span>WINS</span></div><div class="stat"><b>${p.losses||0}</b><span>LOSSES</span></div><div class="stat"><b>${p.deaths?((p.kills/p.deaths).toFixed(2)):"0.00"}</b><span>K/D</span></div></div>`;
+ document.getElementById("headRow").innerHTML="<th>TIER</th>"+modes.map(m=>`<th>${modeEmoji[m]}<br>${m.toUpperCase()}</th>`).join("");
+ document.getElementById("tierBody").innerHTML=tiers.map(t=>`<tr><td>${badge(t[0])}<span class="empty">${t[1]}</span></td>${modes.map(m=>{let names=db.players.filter(x=>x.tiers[m]===t[0]).map(x=>x.name);return `<td>${names.length?names.map(n=>`<span class="playerlink" onclick="openPlayer('${esc(n)}')">${esc(n)}</span>`).join("<br>"):"<span class='empty'>Noch kein Spieler</span>"}</td>`}).join("")}</tr>`).join("");
+ document.getElementById("modes").innerHTML=modes.map(m=>`<div class="mode">${modeEmoji[m]} ${m}</div>`).join("");
+ document.getElementById("legend").innerHTML=tiers.map(t=>`<div class="legendrow">${badge(t[0])}<span>${t[1]}</span></div>`).join("");
+ const all=db.players.reduce((a,p)=>a+(p.kills||0),0), deaths=db.players.reduce((a,p)=>a+(p.deaths||0),0);
+ document.getElementById("overallStats").innerHTML=`<div class="stat"><b>${all}</b><span>KILLS</span></div><div class="stat"><b>${deaths}</b><span>TODE</span></div><div class="stat"><b>${db.tests.length}</b><span>TESTS</span></div><div class="stat"><b>${db.players.length}</b><span>SPIELER</span></div>`;
+ document.getElementById("recentTests").innerHTML=db.tests.length?db.tests.slice(-5).reverse().map(t=>`<div class="row" style="padding:8px 0;border-bottom:1px solid #241d3b"><span><b>${esc(t.player)}</b><br><span class="muted">${esc(t.mode)} • ${esc(t.tester)}</span></span>${badge(t.tier)}</div>`).join(""):"<span class='muted'>Noch keine Tests vorhanden.</span>";
+}
+function renderRankings(){
+ const search=(document.getElementById("search")?.value||"").toLowerCase(), mode=document.getElementById("rankMode")?.value||"", region=document.getElementById("rankRegion")?.value||"";
+ let arr=db.players.filter(p=>(!search||p.name.toLowerCase().includes(search))&&(!region||p.region===region));
+ if(mode) arr=arr.filter(p=>p.tiers[mode]);
+ arr.sort((a,b)=>(b.elo||0)-(a.elo||0));
+ document.getElementById("rankingList").innerHTML=arr.length?arr.map((p,i)=>`<div class="rank"><span class="rankno">#${i+1}</span><span class="playerlink" onclick="openPlayer('${esc(p.name)}')">${esc(p.name)} <span class="muted">${p.region}</span></span>${mode?badge(p.tiers[mode]):`<b>${p.elo||0} ELO</b>`}<span class="muted">${p.wins||0}W / ${p.losses||0}L</span></div>`).join(""):"<div class='muted'>Keine Spieler gefunden.</div>";
+}
+function renderApplications(){
+ document.getElementById("myApplications").innerHTML=db.applications.length?db.applications.slice().reverse().map(a=>`<div class="card"><div class="row"><b>${esc(a.player)}</b><span class="badge ${a.status==="offen"?"ht2":a.status==="angenommen"?"ht5":"lt5"}">${a.status.toUpperCase()}</span></div><div class="muted">${esc(a.mode)} • ${a.region} • ${new Date(a.created).toLocaleString("de-DE")}</div><p>${esc(a.note||"")}</p></div>`).join(""):"<span class='muted'>Noch keine Test-Anfragen.</span>";
+}
+function renderAdmin(){
+ document.getElementById("adminApps").innerHTML=db.applications.length?`<table class="data"><tr><th>Spieler</th><th>Modus</th><th>Region</th><th>Status</th><th>Aktion</th></tr>`+db.applications.map((a,i)=>`<tr><td>${esc(a.player)}</td><td>${esc(a.mode)}</td><td>${a.region}</td><td>${a.status}</td><td><button class="btn" onclick="openTest(${i})">TESTEN</button></td></tr>`).join("")+"</table>":"<span class='muted'>Keine offenen Anfragen.</span>";
+ document.getElementById("adminPlayers").innerHTML=`<table class="data"><tr><th>Spieler</th><th>ELO</th><th>Region</th><th>Tiers</th></tr>`+db.players.map(p=>`<tr><td class="playerlink" onclick="openPlayer('${esc(p.name)}')">${esc(p.name)}</td><td>${p.elo||0}</td><td>${p.region}</td><td>${Object.entries(p.tiers||{}).map(([m,t])=>`${m}: ${t}`).join(", ")||"—"}</td></tr>`).join("")+"</table>";
+}
+function fillSelects(){
+ document.getElementById("rankMode").innerHTML='<option value="">Overall</option>'+modes.map(m=>`<option>${m}</option>`).join("");
+ document.getElementById("applyMode").innerHTML=modes.map(m=>`<option>${m}</option>`).join("");
+}
+function applyTest(){
+ const n=document.getElementById("applyPlayer").value.trim(), m=document.getElementById("applyMode").value, d=document.getElementById("applyDiscord").value.trim(), r=document.getElementById("applyRegion").value, note=document.getElementById("applyNote").value.trim();
+ if(!n||!d){document.getElementById("applyMsg").innerHTML='<div class="notice err">Minecraft-Name und Discord-Name sind erforderlich.</div>';return}
+ if(db.players.some(p=>p.name.toLowerCase()===n.toLowerCase()&&p.tiers[m])){document.getElementById("applyMsg").innerHTML='<div class="notice err">Für diesen Modus existiert bereits ein Tier.</div>';return}
+ if(db.applications.some(a=>a.player.toLowerCase()===n.toLowerCase()&&a.mode===m&&a.status==="offen")){document.getElementById("applyMsg").innerHTML='<div class="notice err">Für diesen Modus gibt es bereits eine offene Anfrage.</div>';return}
+ if(!player(n)) db.players.push({name:n,region:r,elo:0,tiers:{},wins:0,losses:0,kills:0,deaths:0});
+ db.applications.push({player:n,mode:m,discord:d,region:r,note,status:"offen",created:Date.now()});save();
+ document.getElementById("applyMsg").innerHTML='<div class="notice ok">Test-Anfrage erstellt. Ein Tester kann sie jetzt im Dashboard bearbeiten.</div>';renderAll();
+}
+function openTest(i){
+ const a=db.applications[i];
+ document.getElementById("modalContent").innerHTML=`<h2>🧪 Test durchführen</h2><p><b>${esc(a.player)}</b> • ${esc(a.mode)} • ${a.region}</p><div class="form"><select class="select full" id="resultTier">${tiers.map(t=>`<option>${t[0]}</option>`).join("")}</select><input class="input" id="testElo" type="number" value="100" placeholder="ELO-Gewinn"><select class="select" id="testResult"><option>Bestanden</option><option>Nicht bestanden</option></select><input class="input" id="tester" value="Tester" placeholder="Tester-Name"><textarea class="input full" id="testNote" placeholder="Tester-Notiz"></textarea><button class="btn full" onclick="finishTest(${i})">ERGEBNIS SPEICHERN</button></div>`;
+ document.getElementById("modal").classList.add("show");
+}
+function finishTest(i){
+ const a=db.applications[i], p=player(a.player);const tier=document.getElementById("resultTier").value, tester=document.getElementById("tester").value||"Tester", gain=Number(document.getElementById("testElo").value)||0, result=document.getElementById("testResult").value, note=document.getElementById("testNote").value;
+ if(result==="Bestanden"){p.tiers[a.mode]=tier;p.elo=(p.elo||0)+gain}
+ db.tests.push({player:p.name,mode:a.mode,tier:result==="Bestanden"?tier:null,tester,result,note,date:Date.now()});a.status=result==="Bestanden"?"angenommen":"nicht bestanden";save();closeModal();renderAll();
+}
+function openPlayer(name){
+ const p=player(name);if(!p)return;
+ const history=db.tests.filter(t=>t.player.toLowerCase()===p.name.toLowerCase()).slice().reverse();
+ document.getElementById("modalContent").innerHTML=`<div class="profile"><img class="avatar" src="https://minotar.net/helm/${encodeURIComponent(p.name)}/100.png"><div><h2 style="margin:0">${esc(p.name)}</h2><span class="muted">${p.region} • ${p.elo||0} ELO</span></div></div><div class="stats"><div class="stat"><b>${p.wins||0}</b><span>WINS</span></div><div class="stat"><b>${p.losses||0}</b><span>LOSSES</span></div><div class="stat"><b>${p.kills||0}</b><span>KILLS</span></div><div class="stat"><b>${p.deaths?((p.kills/p.deaths).toFixed(2)):"0.00"}</b><span>K/D</span></div></div><h3>Aktuelle Tiers</h3><div class="cards">${modes.map(m=>`<div class="card"><span class="muted">${m}</span><br>${badge(p.tiers[m])}</div>`).join("")}</div><h3>Test-Historie</h3>${history.length?history.map(t=>`<div class="test-row"><span>${esc(t.mode)} • ${esc(t.tester)}<br><span class="muted">${new Date(t.date).toLocaleString("de-DE")}</span></span>${badge(t.tier)}</div>`).join(""):"<span class='muted'>Noch keine Tests.</span>"}`;
+ document.getElementById("modal").classList.add("show");
+}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function seedDemo(){
+ if(!confirm("Demo-Spieler und Testdaten hinzufügen?"))return;
+ const extra=[["NeoPvP","EU","HT2"],["Kryptex","NA","LT2"],["Voidz","EU","HT3"]];
+ extra.forEach(([n,r,t],i)=>{if(!player(n))db.players.push({name:n,region:r,elo:2350-i*80,tiers:{Crystal:t},wins:100-i*8,losses:50+i*4,kills:250-i*20,deaths:150+i*10})});
+ db.tests.push({player:"NeoPvP",mode:"Crystal",tier:"HT2",tester:"MCTester",result:"Bestanden",note:"Demo",date:Date.now()});save();renderAll();
+}
+function exportData(){const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mctiers-data.json";a.click();URL.revokeObjectURL(a.href)}
+function resetData(){if(confirm("Alle lokalen MCTIERS-Daten löschen?")){localStorage.removeItem("mctiers_db");location.reload()}}
+function renderAll(){renderHome();renderRankings();renderApplications();renderAdmin()}
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.page).classList.add("active");window.scrollTo({top:0,behavior:"smooth"})});
+document.getElementById("search").addEventListener("input",renderRankings);document.getElementById("rankMode").addEventListener("change",renderRankings);document.getElementById("rankRegion").addEventListener("change",renderRankings);
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+fillSelects();renderAll();
+</script>
+</body>
+</html>
