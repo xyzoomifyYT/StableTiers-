@@ -1,0 +1,19 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>StableTiers</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div id="login"><div class="loginbox"><img src="assets/logo.svg"><h2>Mit Minecraft-Namen einloggen</h2><p>Dein Ingame-Name wird mit deinem StableTiers-Profil verknüpft.</p><input id="loginName" class="input" maxlength="16" placeholder="z. B. Ferfeken" autocomplete="off"><div id="loginError" class="error"></div><button class="btn" onclick="login()">STABLETIERS BETRETEN</button><p style="font-size:11px">Hinweis: Diese Demo prüft den Namen nicht bei Mojang/Microsoft.</p></div></div>
+<header class="topbar"><nav class="nav"><a href="index.html"><img src="assets/logo.svg"></a><a class="active" href="index.html">TIERLIST</a><a href="rankings.html">RANKS</a><a href="tests.html">TESTS</a><a href="rules.html">REGELN</a><a href="admin.html">ADMIN / TESTER</a><div class="userbox"><div class="avatar" data-user>?</div><b data-user>Spieler</b><button class="logout" onclick="logout()">Ausloggen</button></div></nav></header>
+<main class="wrap"><section class="hero"><h1>StableTiers</h1><p>SKILLS · TIERS · RANKS — dein Minecraft PvP-Tier-System.</p></section>
+<section class="card"><div class="title">👑 DEIN PROFIL</div><div class="profile"><div class="skin" id="avatar">?</div><div><h2 id="pname" style="margin:0"></h2><span class="muted">🇩🇪 Deutschland · EU</span><div class="notice" id="tierNotice"></div></div></div><div class="stats"><div class="stat"><b id="elo">0</b><span>ELO</span></div><div class="stat"><b id="wins">0</b><span>WINS</span></div><div class="stat"><b id="losses">0</b><span>LOSSES</span></div><div class="stat"><b id="kd">0.00</b><span>K/D</span></div></div></section>
+<section class="card"><div class="title">🏆 SO FUNKTIONIERT'S</div><div class="steps"><div class="step"><b>01 · BEWERBEN</b>Wähle einen Modus und sende eine Test-Anfrage.</div><div class="step"><b>02 · TESTEN</b>Ein Tester prüft deine Leistung im gewählten Modus.</div><div class="step"><b>03 · AUSWERTEN</b>Erst nach bestandenem Test bekommst du ein Tier.</div></div><div style="margin-top:12px"><a class="btn" href="tests.html">TEST BEANTRAGEN</a></div></section>
+<section class="card"><div class="title">👑 TIERLISTE</div><div class="tiertable"><table><thead><tr><th>Tier</th>${MODES.map(m=>`<th>${m}</th>`).join("")}</tr></thead><tbody id="tierRows"></tbody></table></div></section></main>
+<footer>StableTiers · Minecraft PvP Tierlist</footer>
+<script src="js/app.js"></script><script>
+function render(){
+ const u=currentUser(),db=load(),p=ensurePlayer(u);document.getElementById("pname").textContent=p.name;document.getElementById("avatar").textContent=p.name[0].toUpperCase();
+ ["elo","wins","losses","kd"].forEach(k=>document.getElementById(k).textContent=p[k]);
+ document.getElementById("tierNotice").innerHTML=p.tier?`<b>${p.tier} · ${p.mode||"PvP"}</b>Dein Tier wurde nach einem Test vergeben.`:`<b>NOCH KEIN TIER</b>Du musst dich zuerst testen lassen, um ein Tier zu bekommen.`;
+ const rows=TIERS.map(t=>`<tr><td>${tierBadge(t)}</td>${MODES.map(m=>`<td id="cell-${t}-${m}"><span class="muted">Noch kein Spieler</span></td>`).join("")}</tr>`).join("");
+ document.getElementById("tierRows").innerHTML=rows;
+ Object.values(db.players).forEach(x=>{if(x.tier&&x.mode){const c=document.getElementById("cell-"+x.tier+"-"+x.mode);if(c)c.innerHTML=`<b>${escapeHtml(x.name)}</b>`}});
+}
+document.addEventListener("DOMContentLoaded",render);
+</script></body></html>
