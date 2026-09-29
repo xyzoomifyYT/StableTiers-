@@ -1,0 +1,190 @@
+{
+  "settings": {
+    "siteName": "STABLETIERS",
+    "serverName": "PVP CLUB",
+    "serverIp": "mcpvp.club",
+    "serverDiscord": "https://discord.gg/",
+    "discords": [
+      {
+        "name": "Stabletiers",
+        "url": "https://discord.gg/",
+        "icon": "⬡"
+      },
+      {
+        "name": "Community",
+        "url": "https://discord.gg/",
+        "icon": "♥"
+      },
+      {
+        "name": "Events",
+        "url": "https://discord.gg/",
+        "icon": "⚗"
+      },
+      {
+        "name": "Staff",
+        "url": "https://discord.gg/",
+        "icon": "♟"
+      },
+      {
+        "name": "PvP",
+        "url": "https://discord.gg/",
+        "icon": "●"
+      },
+      {
+        "name": "Sword",
+        "url": "https://discord.gg/",
+        "icon": "⚔"
+      },
+      {
+        "name": "Axe",
+        "url": "https://discord.gg/",
+        "icon": "⚒"
+      },
+      {
+        "name": "Mace",
+        "url": "https://discord.gg/",
+        "icon": "◆"
+      }
+    ]
+  },
+  "modes": [
+    {
+      "id": "uhc",
+      "label": "UHC",
+      "icon": "heart.png"
+    },
+    {
+      "id": "pot",
+      "label": "Pot",
+      "icon": "pot.png"
+    },
+    {
+      "id": "nethop",
+      "label": "NethOP",
+      "icon": "armor.png"
+    },
+    {
+      "id": "smp",
+      "label": "SMP",
+      "icon": "pearl.png"
+    },
+    {
+      "id": "sword",
+      "label": "Sword",
+      "icon": "sword.png"
+    },
+    {
+      "id": "axe",
+      "label": "Axe",
+      "icon": "sword.png"
+    },
+    {
+      "id": "mace",
+      "label": "Mace",
+      "icon": "mace.png"
+    },
+    {
+      "id": "crystal",
+      "label": "Crystal",
+      "icon": "crystal.png"
+    }
+  ],
+  "players": [
+    {
+      "name": "Marlowww",
+      "region": "NA",
+      "rank": "Combat Grandmaster",
+      "tiers": {
+        "uhc": "LT1",
+        "pot": "HT1",
+        "nethop": "HT1",
+        "smp": "HT1",
+        "sword": "HT1",
+        "axe": "LT1",
+        "mace": "HT1",
+        "crystal": "HT1"
+      },
+      "siteRank": "User"
+    },
+    {
+      "name": "ItzReal",
+      "region": "NA",
+      "rank": "Combat Grandmaster",
+      "tiers": {
+        "uhc": "LT2",
+        "pot": "HT1",
+        "nethop": "HT1",
+        "smp": "HT1",
+        "sword": "HT3",
+        "axe": "LT2",
+        "mace": "LT2",
+        "crystal": "HT1"
+      },
+      "siteRank": "User"
+    },
+    {
+      "name": "Ferfeken",
+      "region": "EU",
+      "rank": "Combat Master",
+      "tiers": {
+        "uhc": "LT2",
+        "pot": "HT2",
+        "nethop": "HT2",
+        "smp": "HT1",
+        "sword": "HT2",
+        "axe": "LT2",
+        "mace": "HT2",
+        "crystal": "HT2"
+      },
+      "siteRank": "Media"
+    },
+    {
+      "name": "xLuninx",
+      "region": "EU",
+      "rank": "Combat Master",
+      "tiers": {
+        "uhc": "LT2",
+        "pot": "HT2",
+        "nethop": "HT2",
+        "smp": "HT2",
+        "sword": "HT2",
+        "axe": "LT2",
+        "mace": "HT2",
+        "crystal": "HT2"
+      },
+      "siteRank": "User"
+    },
+    {
+      "name": "zFrosty",
+      "region": "EU",
+      "rank": "Combat Master",
+      "tiers": {
+        "uhc": "LT3",
+        "pot": "HT2",
+        "nethop": "HT2",
+        "smp": "HT2",
+        "sword": "HT2",
+        "axe": "LT3",
+        "mace": "HT2",
+        "crystal": "HT2"
+      },
+      "siteRank": "Tester"
+    },
+    {
+      "name": "Veltz",
+      "region": "NA",
+      "rank": "Combat Master",
+      "tiers": {
+        "uhc": "LT3",
+        "pot": "HT3",
+        "nethop": "HT2",
+        "smp": "HT2",
+        "sword": "HT2",
+        "axe": "LT3",
+        "mace": "HT3",
+        "crystal": "HT2"
+      },
+      "siteRank": "User"
+    }
+  ]
+}
